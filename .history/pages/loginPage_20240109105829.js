@@ -21,23 +21,20 @@ class LogIn extends baseURLPage {
     await this.page.fill(this.passInput, password)
   }
   async verifyLogInBtnClick () {
+    await page.pause(); 
     const loginSubmitButton = await this.page.locator(this.logInSubmit)
     await loginSubmitButton.click()
+    await expect(loginSubmitButton).toBeVisible()
+    await this.page.setDefaultTimeout(90000)
     await this.page.waitForNavigation()
   }
-  async isLoggedInSuccess (user) {
-    //await this.page.pause();
-    // await this.page.setDefaultTimeout(90000)
-    // console.log(await this.page.content())
-    await this.page.waitForSelector('//*[@id="nameofuser"]', {
-      state: 'visible',
-      timeout: 30000
+  async isLoggedInSuccess () {
+    await this.page.setDefaultTimeout(90000)
+    console.log(await this.page.content())
+    const userNameText = await this.page.textContent(this.userName, {
+      state: 'visible'
     })
-    const userNameText = await this.page.innerText(this.userName, {
-      state: 'visible',
-      timeout: 9000
-    })
-    expect(userNameText).toBe(user)
+    expect(userNameText).toBe('Welcome m@mail.com')
   }
 }
 

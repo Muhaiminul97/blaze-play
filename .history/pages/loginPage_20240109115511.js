@@ -17,26 +17,26 @@ class LogIn extends baseURLPage {
   }
 
   async verifyLogIn (username, password) {
+    await this.page.pause();
     await this.page.fill(this.usernameInput, username)
     await this.page.fill(this.passInput, password)
   }
   async verifyLogInBtnClick () {
+    await this.page.pause(); 
     const loginSubmitButton = await this.page.locator(this.logInSubmit)
     await loginSubmitButton.click()
-    await this.page.waitForNavigation()
+    await this.page.waitForNavigation();
+    
   }
   async isLoggedInSuccess (user) {
-    //await this.page.pause();
-    // await this.page.setDefaultTimeout(90000)
-    // console.log(await this.page.content())
-    await this.page.waitForSelector('//*[@id="nameofuser"]', {
-      state: 'visible',
-      timeout: 30000
+    await this.page.pause();
+    await this.page.setDefaultTimeout(90000)
+    console.log(await this.page.content())
+    await this.page.innerText(this.userName, {
+      state: 'visible',timeout:9000
     })
-    const userNameText = await this.page.innerText(this.userName, {
-      state: 'visible',
-      timeout: 9000
-    })
+    const userNameText =   this.page.waitForSelector('//*[@id="nameofuser"]',{ state: 'visible', timeout: 30000 });
+    await this.page.setDefaultTimeout(90000);
     expect(userNameText).toBe(user)
   }
 }

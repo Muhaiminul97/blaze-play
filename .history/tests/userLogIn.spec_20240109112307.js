@@ -7,7 +7,7 @@ test('verify login url', async ({ page }) => {
   const toBeLoggedIn = new LogIn(page)
   await toBeLoggedIn.BaseUrl('https://www.demoblaze.com/');
   await toBeLoggedIn.verifyLogInBTN();
-  await toBeLoggedIn.verifyLogIn('m@mail.com', 'admin');
+  await toBeLoggedIn.verifyLogIn('m@mail.com', '12345');
   await toBeLoggedIn.verifyLogInBtnClick();
-  await toBeLoggedIn.isLoggedInSuccess('Welcome m@mail.com');
+  await toBeLoggedIn.isLoggedInSuccess();
 })

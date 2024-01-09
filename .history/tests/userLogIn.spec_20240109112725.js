@@ -9,5 +9,5 @@ test('verify login url', async ({ page }) => {
   await toBeLoggedIn.verifyLogInBTN();
   await toBeLoggedIn.verifyLogIn('m@mail.com', 'admin');
   await toBeLoggedIn.verifyLogInBtnClick();
-  await toBeLoggedIn.isLoggedInSuccess('Welcome m@mail.com');
+  await toBeLoggedIn.isLoggedInSuccess();
 })
