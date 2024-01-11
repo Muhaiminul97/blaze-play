@@ -37,7 +37,9 @@ class LogIn extends baseURLPage {
       state: 'visible',
       timeout: 9000
     })
-    expect(userNameText).toBe(user)
+    console.log(userNameText);
+    expect(userNameText).toBe(user);
+
   }
 }
 
