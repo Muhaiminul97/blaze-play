@@ -13,9 +13,9 @@ test.describe('Cart Page', () => {
     homePage = new baseURLPage(page)
 
     await homePage.BaseUrl('https://www.demoblaze.com/')
-    await loginPage.verifyLogInBTN()
     await loginPage.verifyLogIn('m@mail.com', 'admin')
     await loginPage.verifyLogInBtnClick()
+    await loginPage.verifyLogInBTN()
     
   })
 

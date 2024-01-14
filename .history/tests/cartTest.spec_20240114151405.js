@@ -7,16 +7,15 @@ test.describe('Cart Page', () => {
   let loginPage
   let homePage
   let page
-  test.beforeEach(async ({browser}) => {
+  test.beforeEach(async () => {
     page = await browser.newPage()
     loginPage = new LogIn(page)
     homePage = new baseURLPage(page)
 
     await homePage.BaseUrl('https://www.demoblaze.com/')
-    await loginPage.verifyLogInBTN()
     await loginPage.verifyLogIn('m@mail.com', 'admin')
+    await loginPage.verifyLogInBTN()
     await loginPage.verifyLogInBtnClick()
-    
   })
 
   test('verify product selection', async () => {

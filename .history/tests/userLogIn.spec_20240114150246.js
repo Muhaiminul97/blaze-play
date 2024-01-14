@@ -3,7 +3,7 @@ const { LogIn } = require('../pages/loginPage');
 const { test, expect } = require('@playwright/test');
 
 
-  test('verify login url', async ({page}) => {
+  test('verify login url', async () => {
     new baseURLPage(page);
     const toBeLoggedIn = new LogIn(page);
     await toBeLoggedIn.BaseUrl('https://www.demoblaze.com/');
