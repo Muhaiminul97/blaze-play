@@ -4,9 +4,10 @@ import {LogIn} from '../pages/loginPage'
 const {baseURLPage} = require('../pages/basePage')
 const {addtoCart} = require('../pages/addtoCart')
 
-test.describe('Cart Page', () => {
+test.describe.serial('Cart Page', () => {
     let loginPage
     let page
+    let cart
     test.beforeEach(async ({browser}) => {
         page = await browser.newPage()
         loginPage = new LogIn(page)
@@ -18,7 +19,7 @@ test.describe('Cart Page', () => {
     })
 
     test('verify product selection', async () => {
-        const cart = new addtoCart(page)
+        cart = new addtoCart(page)
         // await cart.BaseUrl('https://www.demoblaze.com/')
         await cart.chooseProduct()
     })
