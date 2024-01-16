@@ -2,7 +2,7 @@ import {test, expect} from '@playwright/test'
 import {LogIn} from '../pages/loginPage'
 
 const {baseURLPage} = require('../pages/basePage')
-const {addtoCart} = require('../pages/addtoCart')
+const {addToCart} = require('../pages/addtoCart')
 
 test.describe.serial('Cart Page', () => {
     let loginPage

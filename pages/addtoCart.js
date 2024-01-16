@@ -1,7 +1,7 @@
 const { expect } = require('@playwright/test')
 const { baseURLPage } = require('./basePage')
 
-class addtoCart extends baseURLPage {
+class addToCart extends baseURLPage {
   constructor (pages) {
     super(pages)
     this.product = '.card'
@@ -24,4 +24,4 @@ class addtoCart extends baseURLPage {
   }
 }
 
-module.exports = { addtoCart }
+module.exports = { addToCart }
