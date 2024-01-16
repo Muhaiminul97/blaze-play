@@ -19,7 +19,7 @@ test.describe.serial('Cart Page', () => {
     })
 
     test('verify product selection', async () => {
-        cart = new addtoCart(page)
+        cart = new addToCart(page)
         // await cart.BaseUrl('https://www.demoblaze.com/')
         await cart.chooseProduct()
     })
